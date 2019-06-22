@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "596868321216",
+    "firebase_url": "https://akbb150.firebaseio.com",
+    "project_id": "akbb150",
+    "storage_bucket": "akbb150.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:596868321216:android:c0bcf6ff00c0803b",
+        "android_client_info": {
+          "package_name": "com.example.i80486.foodmanagement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "596868321216-p6mboqm7hueodetdjpashh57tjsv2c4u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCZBt_0LCbQOOT5mo5r9-0bhXcg-1dxVs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "596868321216-p6mboqm7hueodetdjpashh57tjsv2c4u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

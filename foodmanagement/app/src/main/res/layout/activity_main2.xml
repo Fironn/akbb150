@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <android.support.v4.app.FragmentTabHost
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@android:id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    tools:context=".Main2Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/windowBackground"
+        android:fontFamily="monospace"
+        android:textColor="@color/windowBackground"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0" />
+
+        <Button
+            android:id="@+id/button2"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="74dp"
+            android:layout_height="36dp"
+            android:layout_gravity="right"
+            android:fontFamily="monospace"
+            android:padding="1dp"
+            android:text="Logout"
+            android:textColor="@color/colorDark"></Button>
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/floatingActionButton2"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:tint="@color/windowBackground"
+                app:backgroundTint="@color/colorAccent"
+                app:fabSize="normal"
+                app:srcCompat="@android:drawable/ic_input_add" />
+
+        </FrameLayout>
+
+        <!--<DatePicker-->
+            <!--android:id="@+id/dp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:calendarViewShown="false"-->
+            <!--android:datePickerMode="spinner" />-->
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            style="@android:style/Widget.DeviceDefault.Light.TabWidget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal"
+            android:textColor="@color/windowBackground" />
+
+
+    </LinearLayout>
+
+</android.support.v4.app.FragmentTabHost>

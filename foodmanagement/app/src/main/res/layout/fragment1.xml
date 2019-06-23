@@ -10,36 +10,48 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/windowBackground"
         android:fontFamily="monospace"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:context="com.rakuishi.fragment.fragment.SampleFragment">
 
+        <!--<TextView-->
+        <!--android:id="@+id/title"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:text="@string/app_name" />-->
+
+        <Button
+            android:id="@+id/Load_button"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="top|left"
+            android:background="@android:color/transparent"
+            android:text="↺"
+            android:textAllCaps="false"
+            android:textColor="@color/colorBlack"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <TextView
+            android:id="@+id/text_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Hello World!" />
-
-
-        <TextView
-            android:id="@+id/text_dialog"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="ここにダイアログから値が返ります"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/app_name" />
-
-        <ListView
-            android:id="@+id/list"
-            android:layout_width="match_parent"
-            android:layout_height="528dp"
-            android:layout_gravity="bottom" />
-
-
+            android:layout_marginTop="40dp"
+            android:padding="20dp"
+            android:text="Please add the list and click reload"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
 
     </FrameLayout>

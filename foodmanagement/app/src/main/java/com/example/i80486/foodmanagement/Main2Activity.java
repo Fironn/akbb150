@@ -81,8 +81,8 @@ public class Main2Activity extends AppCompatActivity
 
     // ダイアログで入力した値をtextViewに入れる - ダイアログから呼び出される
     public void setTextView(String value) {
-        TextView textView = (TextView) findViewById(R.id.text_dialog);
-        textView.setText(value);
+//        TextView textView = (TextView) findViewById(R.id.text_dialog);
+//        textView.setText(value);
     }
 
     @Override
@@ -111,15 +111,16 @@ public class Main2Activity extends AppCompatActivity
 
 // ビューを画面に反映
                 // テキスト入力用Viewの作成
-                final EditText editView = new EditText(Main2Activity.this,null,R.style.EditTextStyle);
-                final EditText editView2 = new EditText(Main2Activity.this,null,R.style.EditTextStyle);
-                final EditText editView3 = new EditText(Main2Activity.this,null,R.style.EditTextStyle);
-                AlertDialog.Builder dialog = new AlertDialog.Builder(Main2Activity.this, R.style.MyAlertDialogStyle);
+                final EditText editView = new EditText(Main2Activity.this,null);
+                final EditText editView2 = new EditText(Main2Activity.this,null);
+                final EditText editDate = new EditText(Main2Activity.this,null);
+                final EditText editMonth = new EditText(Main2Activity.this,null);
 
-                dialog.setTitle("テキストを入力してください");
+                AlertDialog.Builder dialog = new AlertDialog.Builder(Main2Activity.this);
 
                 //外枠とパーツの作成
                 LinearLayout layout = new LinearLayout(getApplicationContext());
+
                 //上から下にパーツを組み込む設定
                 layout.setOrientation(LinearLayout.VERTICAL);
 //, new LinearLayout.LayoutParams( 300, 70)
@@ -131,40 +132,41 @@ public class Main2Activity extends AppCompatActivity
                 this.month = calendar.get(Calendar.MONTH);
                 this.day = calendar.get(Calendar.DAY_OF_MONTH);
 
+
                 showUserSelectDateTime(editView2);
 
                 // 日付設定ダイアログの作成
-                DatePickerDialog datePickerDialog = new DatePickerDialog(Main2Activity.this,R.style.MyAlertDialogStyle,
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int month, int day) {
-
-                                String buffer = String.format("%4d/%02d/%02d",year,month+1,day);
-                                Main2Activity.this.year=year;
-                                Main2Activity.this.month=month;
-                                Main2Activity.this.day=day;
-
-                                Log.i("lightbox",buffer);
-                                showUserSelectDateTime(editView2);
-                            }
-                        }, year, month, day);
-
-                DatePicker datePicker = datePickerDialog.getDatePicker();
-
-                datePicker.init(year - 1, month  + 1, day + 5, new DatePicker.OnDateChangedListener() {
-                    @Override
-                    public void onDateChanged(DatePicker datePicker, int year, int month, int day) {
-                        Main2Activity.this.year = year;
-                        Main2Activity.this.month = month;
-                        Main2Activity.this.day = day;
-
-                        showUserSelectDateTime(editView2);
-                    }
-                });
-
-                datePicker.setMinDate(calendar.getTimeInMillis());
-                datePicker.setCalendarViewShown(false);
-                datePicker.setSpinnersShown(true);
+//                DatePickerDialog datePickerDialog = new DatePickerDialog(Main2Activity.this,R.style.MyAlertDialogStyle,
+//                        new DatePickerDialog.OnDateSetListener() {
+//                            @Override
+//                            public void onDateSet(DatePicker view, int year, int month, int day) {
+//
+//                                String buffer = String.format("%4d/%02d/%02d",year,month+1,day);
+//                                Main2Activity.this.year=year;
+//                                Main2Activity.this.month=month;
+//                                Main2Activity.this.day=day;
+//
+//                                Log.i("lightbox",buffer);
+//                                showUserSelectDateTime(editView2);
+//                            }
+//                        }, year, month, day);
+//
+//                DatePicker datePicker = datePickerDialog.getDatePicker();
+//
+//                datePicker.init(year - 1, month  + 1, day + 5, new DatePicker.OnDateChangedListener() {
+//                    @Override
+//                    public void onDateChanged(DatePicker datePicker, int year, int month, int day) {
+//                        Main2Activity.this.year = year;
+//                        Main2Activity.this.month = month;
+//                        Main2Activity.this.day = day;
+//
+//                        showUserSelectDateTime(editView2);
+//                    }
+//                });
+//
+//                datePicker.setMinDate(calendar.getTimeInMillis());
+//                datePicker.setCalendarViewShown(false);
+//                datePicker.setSpinnersShown(true);
                 // 日付設定ダイアログの表示
 
 //                datePickerDialog.show();
@@ -172,9 +174,11 @@ public class Main2Activity extends AppCompatActivity
                 layout.addView(make_TextView("品名"));
                 layout.addView(editView);
                 layout.addView(make_TextView("購入日"));
-                layout.addView(editView2);
-                layout.addView(viewDate);
-                layout.addView(datePicker);
+                layout.addView(editMonth);
+                layout.addView(editDate);
+
+//                layout.addView(viewDate);
+//                layout.addView(datePicker);
 
 
                 //レイアウトをダイアログに設定
@@ -185,7 +189,21 @@ public class Main2Activity extends AppCompatActivity
                     public void onClick(DialogInterface dialog, int whichButton) {
 
                         String returnValue = editView.getText().toString();
+                        String returnValue1 = editDate.getText().toString();
+                        String returnValue2 = editMonth.getText().toString();
+//                        int value=Integer.parseInt(returnValue);
+//                        int value1=Integer.parseInt(returnValue1);
+//                        int value2=Integer.parseInt(returnValue2);
+
+
                         setTextView(returnValue);
+
+                        Intent intent = new Intent(Main2Activity.this, InsertData.class);
+                        intent.putExtra("name",returnValue);
+                        intent.putExtra("month",returnValue1);
+                        intent.putExtra("day",returnValue2);
+
+                        startActivity(intent);
                     }
                 });
 

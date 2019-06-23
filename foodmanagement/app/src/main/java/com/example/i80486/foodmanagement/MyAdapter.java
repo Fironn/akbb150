@@ -22,7 +22,6 @@ public class MyAdapter extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment1);
         if (savedInstanceState == null) {
-            listView = (ListView) findViewById(R.id.list);
             titleText = (TextView) findViewById(R.id.title);
         }
         listView.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, names));

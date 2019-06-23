@@ -15,17 +15,21 @@ import android.widget.TextView;
 
 
 public class InsertData extends AppCompatActivity {
-    TextView textView = (TextView) findViewById(R.layout.fragment1);
-    protected Button backButton;
+    TextView textView;
+    protected Button deleteButton;
     protected Button loadButton;
     private SQLiteHelper helper;
     private SQLiteDatabase db;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.fragment1);
+        textView = (TextView) findViewById(R.id.text_view);
+
 
         textView = findViewById(R.id.text_view);
         loadButton = findViewById(R.id.Load_button);
+        deleteButton = findViewById(R.id.Delete_button);
+
 
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
@@ -40,6 +44,15 @@ public class InsertData extends AppCompatActivity {
                 readData();
             }
         });
+
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textView.setText("");
+                db.delete("data1",null,null);
+            }
+        });
+
 
         if(helper == null){
             helper = new SQLiteHelper(getApplicationContext());
@@ -69,6 +82,7 @@ public class InsertData extends AppCompatActivity {
         }
         Log.d("debug", "**********Cursor");
 
+        String order_by = "deadLine2 ASC";
         Cursor cursor = db.query(
                 "data1",
                 new String[]{"name","deadLine1","deadLine2"},
@@ -76,7 +90,8 @@ public class InsertData extends AppCompatActivity {
                 null,
                 null,
                 null,
-                null
+                order_by
+
         );
 
 

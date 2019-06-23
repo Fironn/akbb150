@@ -58,10 +58,10 @@
         app:layout_constraintCircleRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"></Button>
+        app:layout_constraintTop_toBottomOf="@+id/password"></Button>
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/password"
         style="@style/EditTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -73,10 +73,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/username" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/username"
         style="@style/EditTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

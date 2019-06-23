@@ -49,6 +49,8 @@ public class Main2Activity extends AppCompatActivity
         findViewById(R.id.button2).setOnClickListener(this);
         findViewById(R.id.floatingActionButton2).setOnClickListener(this);  //リスナーをボタンに登録
 
+
+
         FragmentTabHost tabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
         tabHost.setup(this, getSupportFragmentManager(), R.id.container);
 
@@ -69,6 +71,7 @@ public class Main2Activity extends AppCompatActivity
         // リスナー登録
         tabHost.setOnTabChangedListener(this);
         MyAdapter myAdapter=new MyAdapter();
+        setUserName();
     }
 //    public void setListView(ArrayList data) {
 //
@@ -90,6 +93,14 @@ public class Main2Activity extends AppCompatActivity
         Log.d("onTabChanged", "tabId: " + tabId);
     }
 
+    public void setUserName(){
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("name");
+        TextView textView=(TextView) findViewById(R.id.username);
+
+        textView.setText("Welcome "+name);
+    }
+
     //ボタンが押された時の処理
     public void onClick(View view) {
         Intent intent;
@@ -108,6 +119,8 @@ public class Main2Activity extends AppCompatActivity
 
 // レイアウトXMLからビューを取得
                 View viewDate = inflater.inflate(R.layout.change_date, null);
+
+//                DatePicker datePicker = findViewById(R.id.dpp).getDatePicker();
 
 // ビューを画面に反映
                 // テキスト入力用Viewの作成
@@ -173,7 +186,7 @@ public class Main2Activity extends AppCompatActivity
 
                 layout.addView(make_TextView("品名"));
                 layout.addView(editView);
-                layout.addView(make_TextView("購入日"));
+                layout.addView(make_TextView("賞味期限"));
                 layout.addView(editMonth);
                 layout.addView(editDate);
 
@@ -189,19 +202,28 @@ public class Main2Activity extends AppCompatActivity
                     public void onClick(DialogInterface dialog, int whichButton) {
 
                         String returnValue = editView.getText().toString();
-                        String returnValue1 = editDate.getText().toString();
-                        String returnValue2 = editMonth.getText().toString();
+                        String returnValue1 = editMonth.getText().toString();
+                        String returnValue2 = editDate.getText().toString();
 //                        int value=Integer.parseInt(returnValue);
 //                        int value1=Integer.parseInt(returnValue1);
 //                        int value2=Integer.parseInt(returnValue2);
 
+                        if(returnValue.length()<=0){
+                            returnValue="無名";
+                        }
+                        if(returnValue1.length()<=0) {
+                            returnValue1=Integer.toString(month);
+                        }
+                        if (returnValue2.length()<= 0) {
+                            returnValue2=Integer.toString(day);
+                        }
 
                         setTextView(returnValue);
 
                         Intent intent = new Intent(Main2Activity.this, InsertData.class);
-                        intent.putExtra("name",returnValue);
-                        intent.putExtra("month",returnValue1);
-                        intent.putExtra("day",returnValue2);
+                        intent.putExtra("name", returnValue);
+                        intent.putExtra("month", returnValue1);
+                        intent.putExtra("day", returnValue2);
 
                         startActivity(intent);
                     }
@@ -216,6 +238,8 @@ public class Main2Activity extends AppCompatActivity
 
                 dialog.show();
                 break;
+
+
 
         }
     }

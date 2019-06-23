@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity">
+
+<EditText
+    android:id="@+id/input"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:ems="10"
+    android:inputType="textPersonName"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:layout_editor_absoluteX="86dp" />
+
+<TextView
+    android:id="@+id/result"
+    android:layout_width="378dp"
+    android:layout_height="99dp"
+    android:layout_marginTop="156dp"
+    android:layout_marginBottom="8dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/input"
+    tools:layout_editor_absoluteX="14dp" />
+
+<Button
+    android:id="@+id/search"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:text="search"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:layout_editor_absoluteX="299dp" />
+
+<TextView
+    android:id="@+id/same"
+    android:layout_width="202dp"
+    android:layout_height="96dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/result"
+    app:layout_constraintVertical_bias="0.485"
+    tools:layout_editor_absoluteX="104dp" />
+</android.support.constraint.ConstraintLayout>
